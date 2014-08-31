@@ -1,11 +1,14 @@
 
 function createCalendar(id) {
     id = _.isNumber(id) && id > 0 ? id : 1;
+
     var output = "",
         i = 0;
 
     for (i; i < id; i++) {
-        output += _.bind(_.template([
+        output += 
+        //_.bind( // todo check
+            _.template([
             '<tr>',
                 '<th colspan="7"><%= monthName %></th>',
             '</tr>',
@@ -36,8 +39,11 @@ function createCalendar(id) {
             weekName: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
             firstDayWeekDay: moment().add(i, "month").subtract(moment().add(i, "month").format("D"), 'days').day(),
             daysInMonth: moment().add(i, "month").endOf('month').format("D")
-        }), i);
+        }
+        //), i
+        );
+
     } // end for()
 
-    $(document.body).append(output);
+    $(document.body).append("<table>" + output + "</table>");
 } 

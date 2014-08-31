@@ -1,0 +1,16 @@
+
+table {
+    width: 90%;
+    text-align: center;
+    padding: 0.2em;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr,
+td,
+th {
+    padding: 0.2em;
+    vertical-align: top;
+    border: 1px solid #ccc;
+}

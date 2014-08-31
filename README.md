@@ -1,6 +1,6 @@
 # momentJS Calendar
 
 ## Create Javascript Calendar
-* lodash
+* lodash template, lodash binding
 * moment
 * jQuery
