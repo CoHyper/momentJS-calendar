@@ -15,6 +15,10 @@ th {
     border: 1px solid #ccc;
 }
 
+.OverMonth {
+    opacity: 0.4;
+}
+
 .Hover {
     background-color: orange;
 }
