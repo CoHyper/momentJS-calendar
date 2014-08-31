@@ -1,7 +1,7 @@
 
 function createCalendar(id) {
     id = _.isNumber(id) && id > 0 ? id : 1;
-    // todo : date is 1 day in future
+    moment.locale("de");
 
     var output = "",
         i = 0;
@@ -22,7 +22,7 @@ function createCalendar(id) {
                     '<td class="OverMonth"><%= p + 1 %></td>',
                 '<% } %>',
                 '<% for (var k = 0; k < daysInMonth; k++) { %>',
-                    '<% if (firstDayWeekDay++ % 7 == 0) { %>', // todo || firstDayWeekDay == 0, then have double TR
+                    '<% if (firstDayWeekDay != 0 && firstDayWeekDay++ % 7 == 0) { %>',
                         '<tr>',
                     '<% } %>',
                     '<td id="<%= year_month_day(k) %>"><%= k + 1 %></td>',
@@ -46,6 +46,24 @@ function createCalendar(id) {
         });
 
     } // end for()
+
+    
+    //console.log(moment().format("DD"));
+    //console.log(moment().startOf("month").startOf('isoweek')); //-> 28
+    //console.log(moment().startOf("month").startOf('isoday')); //-> friday
+    // 
+    // difference between the current day to sunday
+    //console.log(moment().diff(moment().startOf('week'),'days'));
+    // 
+    // this week's wedesday
+    //console.log(moment().startOf('week').add(3, 'days'));
+    //
+    // 
+    console.log(moment().day("isoweek").format("dd")); // -> So -> true
+    /* todo : date is 1 day in future
+     * the week started with sunday
+     * dateISO
+     */
 
     $(document.body).append("<table>" + output + "</table>");
 } 
